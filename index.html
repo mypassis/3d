@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOID RUNNER — Three.js Space Shooter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="game-canvas"></canvas>
+
+        <!-- HUD Overlay -->
+        <div id="hud">
+            <div class="hud-top">
+                <div class="hud-score">
+                    <span class="hud-label">SCORE</span>
+                    <span id="score-display" class="hud-value">0</span>
+                </div>
+                <div class="hud-wave">
+                    <span class="hud-label">WAVE</span>
+                    <span id="wave-display" class="hud-value">1</span>
+                </div>
+            </div>
+            <div class="hud-bottom">
+                <div class="hud-health-bar">
+                    <div class="health-track">
+                        <div id="health-fill" class="health-fill"></div>
+                    </div>
+                    <span id="health-text" class="hud-label-small">HP 100%</span>
+                </div>
+                <div class="hud-shield">
+                    <span class="hud-label-small">SHIELD</span>
+                    <div id="shield-fill" class="shield-segment"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Start Screen -->
+        <div id="start-screen" class="overlay active">
+            <div class="overlay-content">
+                <h1 class="title-glow">VOID<br>RUNNER</h1>
+                <p class="subtitle">Navigate the void. Destroy what opposes you.</p>
+                <div class="controls-info">
+                    <div><kbd>WASD</kbd> / <kbd>↑↓←→</kbd> Move</div>
+                    <div><kbd>SPACE</kbd> Shoot</div>
+                    <div><kbd>SHIFT</kbd> Boost (uses shield)</div>
+                </div>
+                <button id="start-btn" class="btn-primary">LAUNCH MISSION</button>
+            </div>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div id="game-over-screen" class="overlay">
+            <div class="overlay-content">
+                <h2 class="title-danger">MISSION FAILED</h2>
+                <div class="final-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Final Score</span>
+                        <span id="final-score" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Wave Reached</span>
+                        <span id="final-wave" class="stat-value">1</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Enemies Destroyed</span>
+                        <span id="final-kills" class="stat-value">0</span>
+                    </div>
+                </div>
+                <button id="restart-btn" class="btn-primary">RETRY</button>
+            </div>
+        </div>
+
+        <!-- Pause Screen -->
+        <div id="pause-screen" class="overlay">
+            <div class="overlay-content">
+                <h2 class="title-pause">PAUSED</h2>
+                <button id="resume-btn" class="btn-primary">RESUME</button>
+            </div>
+        </div>
+
+        <!-- Crosshair -->
+        <div id="crosshair">
+            <div class="ch-ring"></div>
+            <div class="ch-dot"></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
